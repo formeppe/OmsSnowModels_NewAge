@@ -1,0 +1,86 @@
+import oms3.SimBuilder as OMS3
+
+def work =oms_prj
+Snow = OMS3.sim_run(name:"Snow") {
+ model () {
+   components {
+    def HM = "org.jgrasstools.hortonmachine.modules"
+        def GEARS = "org.jgrasstools.gears.io"
+
+        // RASTER READER
+         "reader_dem"                 "${GEARS}.rasterreader.RasterReader"
+         "reader_jan"                 "${GEARS}.rasterreader.RasterReader"
+         "reader_feb"                 "${GEARS}.rasterreader.RasterReader"
+         "reader_mar"                 "${GEARS}.rasterreader.RasterReader"
+         "reader_apr"                 "${GEARS}.rasterreader.RasterReader"
+         "reader_may"                 "${GEARS}.rasterreader.RasterReader"
+         "reader_sky"                 "${GEARS}.rasterreader.RasterReader"
+         "reader_jun"                 "${GEARS}.rasterreader.RasterReader"
+         "insolation"                 "${HM}.hydrogeomorphology.insolationMIO.SnowMelting07102013_ALLin1"
+         "vreader_station"            "${GEARS}.vectorreader.VectorReader"
+           
+
+
+   }
+   parameter {
+
+           
+           "reader_dem.file"           "${work}//data//Maps//dem.asc"
+            
+            "reader_jan.file"           "${work}//data//Maps//GENNAIO.asc"
+            "reader_feb.file"           "${work}//data//Maps//FEBBRAIO.asc"
+            "reader_mar.file"           "${work}//data//Maps//MARZO.asc"
+            "reader_apr.file"           "${work}//data//Maps//APRILE.asc"
+            "reader_may.file"           "${work}//data//Maps//MAGGIO.asc"   
+            "reader_jun.file"           "${work}//data//Maps//GIUGNO.asc"                     
+            "reader_sky.file"          "${work}//data//Maps//sky.asc"
+            
+            "vreader_station.file"     "${work}//data//JoeWrigth//stationJR.shp"
+           
+           
+
+
+
+
+        "insolation.fStationsid"  "Field2"
+        "insolation.tStartDate"  "1999-10-01 00:00"
+        "insolation.tEndDate"  "2009-10-01 00:00"
+        "insolation.doRaster"  false
+        "insolation.pCmf"  0.5
+        "insolation.pCr"  1.17
+        "insolation.pCs"  1.13
+        "insolation.pCff"  0.002
+        "insolation.pTmelt" 1.5
+        "insolation.pR" 0.03
+        "insolation.pm1" 1.0       
+        "insolation.doDaily"  true
+        "insolation.inTimestep" 1440
+        "insolation.pMode" 0
+        "insolation.pathTemp"  "${work}//data//JoeWrigth//Daily//Jho_Wrigth_T_LAST_DAILY.csv"
+        "insolation.pathRainf"  "${work}//data//JoeWrigth//Daily//Jho_Wrigth_P_LAST_DAILY.csv"
+        "insolation.pathToMelting"  "${work}//output/Jho_Wrigth_Melting_LAST_DAILY_CD.csv"
+        "insolation.pathToSwe"  "${work}//output//Jho_Wrigth_SWE_LAST_DAILY_CD.csv"   
+           
+           
+           
+
+       
+   }
+   connect {
+            
+          
+          
+      "reader_dem.outRaster"  "insolation.inDem" 
+      "vreader_station.outVector"  "insolation.inStations"      
+      "reader_jan.outRaster"  "insolation.inInsJan"   
+      "reader_feb.outRaster"  "insolation.inInsFeb"     
+      "reader_mar.outRaster"  "insolation.inInsMar"  
+      "reader_apr.outRaster"  "insolation.inInsApr"  
+      "reader_may.outRaster"  "insolation.inInsMay"  
+      "reader_jun.outRaster"  "insolation.inInsJun"  
+      "reader_sky.outRaster"  "insolation.inSkyview"  
+          
+   }
+  }
+
+}

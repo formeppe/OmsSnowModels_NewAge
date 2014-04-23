@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.ant.freeform</type>
+    <configuration>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
+            <name>oms3.prj.newage</name>
+        </general-data>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/2">
+            <!-- Do not use Project Properties customizer when editing this file manually. -->
+            <name>oms3.prj.newage</name>
+            <properties>
+                <property-file>.oms/project.properties</property-file>
+            </properties>
+            <folders>
+                <source-folder>
+                    <label>Simulations</label>
+                    <type>groovy</type>
+                    <location>simulation</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>oms3.prj.prms</label>
+                    <location>.</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>Sources</label>
+                    <type>java</type>
+                    <location>src</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>Data</label>
+                    <type>java</type>
+                    <location>data</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>Simulations</label>
+                    <type>java</type>
+                    <location>simulation</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>Output</label>
+                    <type>java</type>
+                    <location>output</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+            </folders>
+            <ide-actions>
+                <action name="build">
+                    <target>jar</target>
+                </action>
+                <action name="clean">
+                    <target>clean</target>
+                </action>
+                <action name="rebuild">
+                    <target>clean</target>
+                    <target>jar</target>
+                </action>
+                <action name="compile.single">
+                    <script>build.xml</script>
+                    <target>compile-selected-files-in-src</target>
+                    <context>
+                        <property>files</property>
+                        <folder>src</folder>
+                        <pattern>\.java$</pattern>
+                        <format>relative-path</format>
+                        <arity>
+                            <separated-files>,</separated-files>
+                        </arity>
+                    </context>
+                </action>
+                <action name="run.single">
+                    <script>build.xml</script>
+                    <target>run-selected-file-in-src</target>
+                    <context>
+                        <property>run.class</property>
+                        <folder>src</folder>
+                        <pattern>\.java$</pattern>
+                        <format>java-name</format>
+                        <arity>
+                            <one-file-only/>
+                        </arity>
+                    </context>
+                </action>
+                <action name="run.single">
+                    <script>build.xml</script>
+                    <target>run-selected-file</target>
+                    <context>
+                        <property>run.class</property>
+                        <folder>simulation</folder>
+                        <pattern>\.(esp|luca|sim|groovy|ps|jgt)$</pattern>
+                        <format>absolute-path</format>
+                        <arity>
+                            <one-file-only/>
+                        </arity>
+                    </context>
+                </action>
+                <action name="debug.single">
+                    <script>build.xml</script>
+                    <target>debug-selected-file</target>
+                    <context>
+                        <property>run.class</property>
+                        <folder>simulation</folder>
+                        <pattern>\.(java|sim)$</pattern>
+                        <format>absolute-path</format>
+                        <arity>
+                            <one-file-only/>
+                        </arity>
+                    </context>
+                </action>
+            </ide-actions>
+            <view>
+                <items>
+                    <source-folder style="packages">
+                        <label>Sources</label>
+                        <location>src</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>Data</label>
+                        <location>data</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>Simulations</label>
+                        <location>simulation</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>Output</label>
+                        <location>output</location>
+                    </source-folder>
+                    <source-file>
+                        <location>build.xml</location>
+                    </source-file>
+                    <source-file>
+                        <label>Project Properties</label>
+                        <location>.oms/project.properties</location>
+                    </source-file>
+                </items>
+                <context-menu>
+                    <ide-action name="build"/>
+                    <ide-action name="rebuild"/>
+                    <ide-action name="clean"/>
+                </context-menu>
+            </view>
+            <subprojects/>
+        </general-data>
+        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/3">
+            <compilation-unit>
+                <package-root>src</package-root>
+                <classpath mode="compile">${user.home}/.oms/${oms.version}/oms-all.jar</classpath>
+                <classpath mode="compile">lib/antlr-2.7.7.jar:lib/antlr-3.3.jar:lib/antlr-runtime-3.3.jar:lib/commons-pool-1.5.4.jar:lib/groovy-all-1.7.1.jar:lib/gt-api-8.0-M1.jar:lib/gt-arcgrid-8.0-M1.jar:lib/gt-coverage-8.0-M1.jar:lib/gt-cql-8.0-M1.jar:lib/gt-data-8.0-M1.jar:lib/gt-epsg-hsql-8.0-M1.jar:lib/gt-geotiff-8.0-M1.jar:lib/gt-graph-8.0-M1.jar:lib/gt-grassraster-8.0-M1.jar:lib/gt-imageio-ext-gdal-8.0-M1.jar:lib/gt-main-8.0-M1.jar:lib/gt-metadata-8.0-M1.jar:lib/gt-opengis-8.0-M1.jar:lib/gt-process-8.0-M1.jar:lib/gt-property-8.0-M1.jar:lib/gt-referencing-8.0-M1.jar:lib/gt-render-8.0-M1.jar:lib/gt-shapefile-8.0-M1.jar:lib/gt-swing-8.0-M1.jar:lib/gt-wms-8.0-M1.jar:lib/gt-xml-8.0-M1.jar:lib/hsqldb-1.8.0.7.jar:lib/imageio-ext-arcgrid-1.1.0.jar:lib/imageio-ext-gdal-bindings-1.7.jar:lib/imageio-ext-gdalarcbinarygrid-1.1.0.jar:lib/imageio-ext-gdaldted-1.1.0.jar:lib/imageio-ext-gdalecw-1.1.0.jar:lib/imageio-ext-gdalecwjp2-1.1.0.jar:lib/imageio-ext-gdalehdr-1.1.0.jar:lib/imageio-ext-gdalenvihdr-1.1.0.jar:lib/imageio-ext-gdalerdasimg-1.1.0.jar:lib/imageio-ext-gdalframework-1.1.0.jar:lib/imageio-ext-gdalkakadujp2-1.1.0.jar:lib/imageio-ext-gdalmrsid-1.1.0.jar:lib/imageio-ext-gdalmrsidjp2-1.1.0.jar:lib/imageio-ext-gdalnitf-1.1.0.jar:lib/imageio-ext-gdalrpftoc-1.1.0.jar:lib/imageio-ext-geocore-1.1.0.jar:lib/imageio-ext-imagereadmt-1.1.0.jar:lib/imageio-ext-streams-1.1.0.jar:lib/imageio-ext-tiff-1.1.0.jar:lib/imageio-ext-utilities-1.1.0.jar:lib/jai_codec-1.1.3.jar:lib/jai_core-1.1.3.jar:lib/jai_imageio-1.1.jar:lib/janino-2.5.16.jar:lib/jansi-1.2.1.jar:lib/javassist-3.6.0.GA.jar:lib/jcommon-1.0.16.jar:lib/jdom-1.0.jar:lib/jfreechart-1.0.13.jar:lib/jfreechart-experimental-1.0.13.jar:lib/jfreechart-swt-1.0.13.jar:lib/jgt-grass-0.7.4-SNAPSHOT.jar:lib/jgt-hortonmachine-0.7.4-SNAPSHOT.jar:lib/jgt-jgrassgears-0.7.4-SNAPSHOT.jar:lib/jline-0.9.94.jar:lib/jna-3.0.9.jar:lib/joda-time-1.6.jar:lib/jsr-275-1.0-beta-2.jar:lib/jt-all-1.2.0.jar:lib/jt-jiffle-language-0.2.0.jar:lib/jts-1.12.jar:lib/miglayout-3.7-swing.jar:lib/newage.jar:lib/scannotation-1.0.2.jar:lib/stringtemplate-3.2.1.jar:lib/vecmath-1.3.2.jar:lib/xercesImpl-2.4.0.jar</classpath>
+                <source-level>1.6</source-level>
+            </compilation-unit>
+        </java-data>
+    </configuration>
+</project>

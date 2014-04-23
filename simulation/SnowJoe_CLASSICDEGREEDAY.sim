@@ -1,0 +1,73 @@
+import oms3.SimBuilder as OMS3
+
+def work =oms_prj
+Snow = OMS3.sim_run(name:"Snow") {
+ model () {
+   components {
+    def HM = "org.jgrasstools.hortonmachine.modules"
+        def GEARS = "org.jgrasstools.gears.io"
+
+        // RASTER READER
+         "reader_dem"                 "${GEARS}.rasterreader.RasterReader"
+
+
+         "reader_sky"                 "${GEARS}.rasterreader.RasterReader"
+
+         "insolation"                 "${HM}.hydrogeomorphology.insolationMIO.SnowMelting07102013_ALLin1"
+         "vreader_station"            "${GEARS}.vectorreader.VectorReader"
+           
+
+
+   }
+   parameter {
+
+           
+           "reader_dem.file"           "${work}//data//Maps//dem.asc"
+            
+                 
+            "reader_sky.file"          "${work}//data//Maps//sky.asc"
+            
+            "vreader_station.file"     "${work}//data//JoeWrigth//stationJR.shp"
+           
+           
+
+
+
+
+        "insolation.fStationsid"  "Field2"
+        "insolation.tStartDate"  "1999-10-01 00:00"
+        "insolation.tEndDate"  "2009-10-01 00:00"
+        "insolation.doRaster"  false
+        "insolation.pCmf"  1.8661818627112228
+        "insolation.pCr"  1.2501705926981852
+        "insolation.pCs"   0.9806180731927083
+        "insolation.pCff"  1.7996607836908517E-4
+        "insolation.pTmelt" -0.34648091188675195
+        "insolation.pR"  0.4444087373427996
+        "insolation.pm1" 1.0       
+        "insolation.doDaily"  true
+        "insolation.inTimestep" 1440
+        "insolation.pMode" 1
+        "insolation.pathTemp"  "${work}//data//JoeWrigth//Daily//Jho_Wrigth_T_LAST_DAILY.csv"
+        "insolation.pathRainf"  "${work}//data//JoeWrigth//Daily//Jho_Wrigth_P_LAST_DAILY.csv"
+        "insolation.pathToMelting"  "${work}//output//Jho_Wrigth_Melting_LAST_DAILY_DD.csv"
+        "insolation.pathToSwe"  "${work}//output//Jho_Wrigth_SWE_LAST_DAILY_DD.csv"   
+           
+           
+           
+
+       
+   }
+   connect {
+            
+          
+          
+      "reader_dem.outRaster"  "insolation.inDem" 
+      "vreader_station.outVector"  "insolation.inStations"      
+ 
+      "reader_sky.outRaster"  "insolation.inSkyview"  
+          
+   }
+  }
+
+}

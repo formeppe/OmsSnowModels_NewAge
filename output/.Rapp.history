@@ -1,0 +1,38 @@
+library(chron)
+simulated=read.table("DischargeSimulatedLW2002.csv",skip=7,sep=",")#
+observed=read.table("portate_staz_07327550JAVA",skip=7,sep=",",na.string="-999")#
+t1 <- chron("01/01/2002", "00:00:00",format = c(dates = "d/m/y", times = "h:m:s"))#
+t2 <- chron("31/12/2008", "00:00:00",format = c(dates = "d/m/y", times = "h:m:s"))#
+tt <- seq(t1, t2, by = times("01:00:00"))#
+#
+plot(tt [1:nrow(simulated)],observed[1:nrow(simulated),1],pch=16,cex=0.2,col="gray",xlab="time [h]",ylab="Discharge [m^3/s]")#
+lines(tt[1:nrow(simulated)],simulated[,3],lwd=1.5)
+simulated=read.table("DischargeSimulatedLW2002.csv",skip=7,sep=",")#
+observed=read.table("portate_staz_07327550JAVA",skip=7,sep=",",na.string="-999")
+simulated=read.table("DischargeSimulatedLW2002.csv",skip=7,sep=",")
+getwd()
+library(chron)#
+str="/Users/giuseppeformetta/Desktop/ISPRAOK"#
+path=paste(str,"ISPRAoms3.prj.newage/output",sep="")#
+setwd(path)
+PATH
+path
+library(chron)#
+str="/Users/giuseppeformetta/Desktop/ISPRAOK/"#
+path=paste(str,"ISPRAoms3.prj.newage/output",sep="")#
+setwd(path)#
+#
+simulated=read.table("DischargeSimulatedLW2002.csv",skip=7,sep=",")#
+observed=read.table("portate_staz_07327550JAVA",skip=7,sep=",",na.string="-999")
+t1 <- chron("01/01/2002", "00:00:00",format = c(dates = "d/m/y", times = "h:m:s"))#
+t2 <- chron("31/12/2008", "00:00:00",format = c(dates = "d/m/y", times = "h:m:s"))#
+tt <- seq(t1, t2, by = times("01:00:00"))#
+#
+plot(tt [1:nrow(simulated)],observed[1:nrow(simulated),1],pch=16,cex=0.2,col="gray",xlab="time [h]",ylab="Discharge [m^3/s]")#
+lines(tt[1:nrow(simulated)],simulated[,3],lwd=1.5)
+t1 <- chron("01/01/2002", "00:00:00",format = c(dates = "d/m/y", times = "h:m:s"))#
+t2 <- chron("31/12/2008", "00:00:00",format = c(dates = "d/m/y", times = "h:m:s"))#
+tt <- seq(t1, t2, by = times("01:00:00"))#
+#
+plot(tt [1:nrow(simulated)],observed[1:nrow(simulated),1],pch=16,cex=0.2,col="gray",xlab="time [h]",ylab="Discharge [m^3/s]")#
+lines(tt[1:nrow(simulated)],simulated[,3],lwd=1.5)
